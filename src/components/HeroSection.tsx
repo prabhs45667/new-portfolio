@@ -89,7 +89,7 @@ const HeroSection: React.FC = () => {
           fpsLimit: 60,
           particles: {
             number: {
-              value: 80,
+              value: 60, // Reduced from 100
               density: {
                 enable: true,
                 width: 800,
@@ -103,7 +103,7 @@ const HeroSection: React.FC = () => {
               type: "circle",
             },
             opacity: {
-              value: { min: 0.1, max: 0.5 },
+              value: { min: 0.05, max: 0.3 }, // Reduced opacity range
               animation: {
                 enable: true,
                 speed: 1,
@@ -135,7 +135,7 @@ const HeroSection: React.FC = () => {
                 default: "out",
               },
               attract: {
-                enable: true,
+                enable: false, // Disabled attraction
                 rotate: { x: 600, y: 1200 },
               },
             },
