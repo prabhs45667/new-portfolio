@@ -1,0 +1,96 @@
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import contactImg from '../../img/contactss.png';
+
+/**
+ * ContactSection with GSAP ScrollTrigger animations.
+ */
+const ContactSection: React.FC = () => {
+  const contactRef = useRef<HTMLElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const sectionEl = contactRef.current;
+    if (sectionEl) {
+      const targets = Array.from(
+        sectionEl.querySelectorAll<HTMLElement>('.container > *')
+      );
+      gsap.from(targets, {
+        scrollTrigger: { trigger: sectionEl, start: 'top 80%', toggleActions: 'play reverse play reverse' },
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        stagger: 0.2,
+      });
+    }
+    const imgEl = imgRef.current;
+    if (imgEl) {
+      gsap.from(imgEl, {
+        scrollTrigger: { trigger: imgEl, start: 'top 80%', toggleActions: 'play reverse play reverse' },
+        x: 200,
+        opacity: 0,
+        duration: 1.2,
+      });
+    }
+  }, []);
+
+  return (
+    <section id="contact" className="py-20" ref={contactRef}>
+      <div className="container mx-auto">
+        <h2 className="section-heading">Get In Touch</h2>
+        
+        <div className="grid md:grid-cols-2 gap-12 mt-12">
+          <div>
+            <p className="text-lg mb-6">
+              I'm currently looking for new opportunities to apply my skills in Computer Science. 
+              Whether you have a question or just want to say hi, I'll do my best to get back to you!
+            </p>
+            
+            <div className="space-y-4 mt-8">
+              <a href="mailto:prabhs4546@gmail.com" className="flex items-center gap-3 group">
+                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <span className="group-hover:text-accent transition-colors">prabhs4546@gmail.com</span>
+              </a>
+              
+              <a href="tel:+917701857794" className="flex items-center gap-3 group">
+                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <span className="group-hover:text-accent transition-colors">+91-7701857794</span>
+              </a>
+              
+              <a href="https://github.com/prabhs4546" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Github className="h-5 w-5" />
+                </div>
+                <span className="group-hover:text-accent transition-colors">github.com/prabhs4546</span>
+              </a>
+              
+              <a href="https://www.linkedin.com/in/prabhdeep-singh-narula-1798b0246/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </div>
+                <span className="group-hover:text-accent transition-colors">linkedin.com/in/prabhdeep-singh-narula</span>
+              </a>
+            </div>
+          </div>
+          <div className="flex justify-center items-center w-full h-full">
+          <img
+            src={contactImg}
+            alt="Contact"
+            className="rounded-xl shadow-lg object-cover w-full max-w-[400px] h-[370px]"
+            ref={imgRef}
+          />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;
