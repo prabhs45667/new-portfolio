@@ -37,52 +37,52 @@ const ContactSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-20" ref={contactRef}>
-      <div className="container mx-auto">
+    <section id="contact" className="py-12 md:py-20" ref={contactRef}>
+      <div className="container mx-auto px-4 md:px-0">
         <h2 className="section-heading">Get In Touch</h2>
         
-        <div className="grid md:grid-cols-2 gap-12 mt-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 mt-8 md:mt-12">
           <div>
-            <p className="text-lg mb-6">
+            <p className="text-base md:text-lg mb-4 md:mb-6">
               I'm currently looking for new opportunities to apply my skills in Computer Science. 
               Whether you have a question or just want to say hi, I'll do my best to get back to you!
             </p>
             
-            <div className="space-y-4 mt-8">
-              <a href="mailto:prabhs4546@gmail.com" className="flex items-center gap-3 group">
-                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                  <Mail className="h-5 w-5" />
+            <div className="space-y-3 md:space-y-4 mt-6 md:mt-8">
+              <a href="mailto:prabhs4546@gmail.com" className="flex items-center gap-2 md:gap-3 group">
+                <div className="p-2 md:p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Mail className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
-                <span className="group-hover:text-accent transition-colors">prabhs4546@gmail.com</span>
+                <span className="text-sm md:text-base group-hover:text-accent transition-colors break-all">prabhs4546@gmail.com</span>
               </a>
               
-              <a href="tel:+917701857794" className="flex items-center gap-3 group">
-                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                  <Phone className="h-5 w-5" />
+              <a href="tel:+917701857794" className="flex items-center gap-2 md:gap-3 group">
+                <div className="p-2 md:p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Phone className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
-                <span className="group-hover:text-accent transition-colors">+91-7701857794</span>
+                <span className="text-sm md:text-base group-hover:text-accent transition-colors">+91-7701857794</span>
               </a>
               
-              <a href="https://github.com/prabhs45667" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                  <Github className="h-5 w-5" />
+              <a href="https://github.com/prabhs45667" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-3 group">
+                <div className="p-2 md:p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Github className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
-                <span className="group-hover:text-accent transition-colors">github.com/prabhs45667</span>
+                <span className="text-sm md:text-base group-hover:text-accent transition-colors">github.com/prabhs45667</span>
               </a>
               
-              <a href="https://www.linkedin.com/in/prabhdeep-singh-265a43296/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                  <Linkedin className="h-5 w-5" />
+              <a href="https://www.linkedin.com/in/prabhdeep-singh-265a43296/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 md:gap-3 group">
+                <div className="p-2 md:p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <Linkedin className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
-                <span className="group-hover:text-accent transition-colors">linkedin.com/in/prabhdeep-singh-265a43296</span>
+                <span className="text-sm md:text-base group-hover:text-accent transition-colors">linkedin.com/in/prabhdeep-singh-265a43296</span>
               </a>
             </div>
           </div>
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full h-full mt-6 md:mt-0">
           <img
             src="/img/contactss.png"
             alt="Contact"
-            className="rounded-xl shadow-lg object-cover w-full max-w-[400px] h-[370px]"
+            className="rounded-xl shadow-lg object-cover w-full max-w-[300px] md:max-w-[400px] h-[250px] md:h-[370px]"
             ref={imgRef}
           />
           </div>

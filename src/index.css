@@ -160,8 +160,44 @@
     mix-blend-mode: difference;
     filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.7));
   }
+  
+  /* Hide custom cursor on mobile devices */
+  @media (max-width: 768px) {
+    .cursor-dot, .cursor-outline {
+      display: none;
+    }
+    body {
+      cursor: auto !important;
+    }
+  }
 }
 
+/* Responsive container padding */
+.container {
+  @apply px-4 md:px-6 lg:px-8;
+}
+
+/* Responsive section padding */
+section {
+  @apply py-12 md:py-16 lg:py-20;
+}
+
+/* Responsive text scaling */
+h1 {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+}
+
+h2 {
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+}
+
+h3 {
+  @apply text-lg sm:text-xl md:text-2xl;
+}
+
+p {
+  @apply text-sm md:text-base;
+}
 
 .particle-canvas {
   position: absolute;

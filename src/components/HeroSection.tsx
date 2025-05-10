@@ -187,29 +187,29 @@ const HeroSection: React.FC = () => {
         }}
       />
 
-      <div className="container mx-auto text-center z-10">
+      <div className="container mx-auto text-center z-10 px-4 md:px-0">
         <p className="text-accent font-medium mb-2 animate-fade-in">
           <AnimatedText text="Hello, I'm" />
         </p>
-        <h1 ref={headingRef} className="hero-heading mb-4 uppercase text-white">
+        <h1 ref={headingRef} className="hero-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 uppercase text-white">
           <AnimatedText text="PRABHDEEP SINGH NARULA" />
         </h1>
         <h2
           ref={subheadingRef}
-          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto"
         >
           <AnimatedText text="Computer Science Engineer with expertise in Web " />
           <br />
           <AnimatedText text="Development Data Science & Machine Learning" />
         </h2>
 
-        <div ref={buttonsRef} className="flex flex-wrap justify-center gap-4">
-          <Button variant="default" size="lg" asChild>
+        <div ref={buttonsRef} className="flex flex-wrap justify-center gap-3 md:gap-4">
+          <Button variant="default" size="sm" className="text-sm md:text-base" asChild>
             <a href="#projects">
               <AnimatedText text="View My Work" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" asChild>
+          <Button variant="outline" size="sm" className="text-sm md:text-base" asChild>
             <a href="#contact">
               <AnimatedText text="Get In Touch" />
             </a>
@@ -217,15 +217,15 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-16 animate-bounce">
+      <div className="absolute bottom-8 md:bottom-16 animate-bounce">
         <a
           href="#about"
           className="text-muted-foreground flex flex-col items-center"
         >
-          <span className="mb-2 text-sm">
+          <span className="mb-1 md:mb-2 text-xs md:text-sm">
             <AnimatedText text="Scroll Down" />
           </span>
-          <ArrowDown className="h-5 w-5" />
+          <ArrowDown className="h-4 w-4 md:h-5 md:w-5" />
         </a>
       </div>
     </section>

@@ -211,14 +211,14 @@ const ProjectsSection: React.FC = () => {
         }
         return acc;
       }, [] as Project[][]).map((slide, slideIdx) => (
-        <div className="swiper-slide w-full flex justify-center space-x-8" key={slideIdx}>
+        <div className="swiper-slide w-full flex flex-col md:flex-row justify-center md:space-x-8 space-y-8 md:space-y-0" key={slideIdx}>
           {slide.map((project, index) => (
             <div
               key={index}
-              className="tech-card flex flex-col rounded-xl overflow-hidden bg-card shadow-lg mx-4 w-2/5"
+              className="tech-card flex flex-col rounded-xl overflow-hidden bg-card shadow-lg mx-auto md:mx-4 w-full md:w-2/5 max-w-sm"
             >
               {/* Upper half: Image */}
-              <div className="w-full h-[270px] bg-gray-800 flex items-center justify-center">
+              <div className="w-full h-[200px] md:h-[270px] bg-gray-800 flex items-center justify-center">
                 <img
                   src={
                     project.title === "Dream11 Fantasy Cricket Prediction System" ? "/img/dream.png" :
@@ -231,14 +231,14 @@ const ProjectsSection: React.FC = () => {
                 />
               </div>
               {/* Lower half: Content */}
-              <div className="flex flex-col flex-grow p-6">
+              <div className="flex flex-col flex-grow p-4 md:p-6">
                 <div className="mb-2">
-                  <h3 className="text-2xl font-bold mb-1 text-white">{project.title}</h3>
-                  <div className="text-base text-muted-foreground mb-2">{project.description}</div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">{project.title}</h3>
+                  <div className="text-sm md:text-base text-muted-foreground mb-2">{project.description}</div>
                 </div>
                 <ul className="list-disc list-inside space-y-2 mb-4">
                   {project.details.slice(0, 2).map((detail, idx) => (
-                    <li key={idx} className="text-sm text-muted-foreground">{detail}</li>
+                    <li key={idx} className="text-xs md:text-sm text-muted-foreground">{detail}</li>
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-2 mt-auto mb-4">
