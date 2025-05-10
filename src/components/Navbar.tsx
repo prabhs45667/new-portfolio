@@ -121,7 +121,7 @@ const Navbar = () => {
             <ThemeToggle />
           </div>
           <Button variant="default" className="ml-4" asChild>
-            <a href="https://drive.google.com/file/d/1XXp8rh0z-btNFy6N94UuPh35xUeY489B/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1oK8B-xbiUMQo8xpXKU1a6EBawy3e_37u/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <AnimatedText text="Resume" />
             </a>
           </Button>
@@ -180,7 +180,7 @@ const Navbar = () => {
             </a>
           </div>
           <Button variant="default" className="mt-4" asChild>
-            <a href="https://drive.google.com/file/d/1XXp8rh0z-btNFy6N94UuPh35xUeY489B/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1oK8B-xbiUMQo8xpXKU1a6EBawy3e_37u/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <AnimatedText text="Resume" />
             </a>
           </Button>
