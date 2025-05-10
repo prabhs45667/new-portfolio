@@ -5,6 +5,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import VisitorCounter from "./VisitorCounter";
 
 // Component to animate each character in a text string
 const AnimatedText: React.FC<{ text: string; className?: string }> = ({
@@ -186,6 +187,11 @@ const HeroSection: React.FC = () => {
           detectRetina: true,
         }}
       />
+
+      {/* Visitor Counter - Positioned below navigation bar */}
+      <div className="fixed top-24 md:top-[5.5rem] right-4 md:right-8 z-30">
+        <VisitorCounter className="opacity-90 hover:opacity-100 transition-opacity duration-300" />
+      </div>
 
       <div className="container mx-auto text-center z-10 px-4 md:px-0">
         <p className="text-accent font-medium mb-2 animate-fade-in">
