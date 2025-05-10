@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
-import contactImg from '../../img/contactss.png';
 
 /**
  * ContactSection with GSAP ScrollTrigger animations.
@@ -81,7 +80,7 @@ const ContactSection: React.FC = () => {
           </div>
           <div className="flex justify-center items-center w-full h-full">
           <img
-            src={contactImg}
+            src="/img/contactss.png"
             alt="Contact"
             className="rounded-xl shadow-lg object-cover w-full max-w-[400px] h-[370px]"
             ref={imgRef}
