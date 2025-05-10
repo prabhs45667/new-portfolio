@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, Calendar } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadFull } from "tsparticles";
 
 interface Experience {
   title: string;
@@ -28,6 +30,11 @@ const experiences: Experience[] = [
 
 const ExperienceSection: React.FC = () => {
   const expRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    initParticlesEngine(loadFull);
+  }, []);
+  
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const sectionEl = expRef.current;
@@ -56,8 +63,100 @@ const ExperienceSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-20" ref={expRef}>
-      <div className="container mx-auto">
+    <section id="experience" className="py-20 relative" ref={expRef}>
+      {/* Star particles background */}
+      <Particles
+        id="experienceTsparticles"
+        className="absolute inset-0 -z-10"
+        options={{
+          background: {
+            color: {
+              value: "transparent",
+            },
+          },
+          fpsLimit: 60,
+          particles: {
+            number: {
+              value: 60,
+              density: {
+                enable: true,
+                width: 800,
+                height: 800,
+              },
+            },
+            color: {
+              value: ["#ffffff", "#f5f5f5", "#e0e0e0"],
+            },
+            shape: {
+              type: "star",
+              options: {
+                star: {
+                  sides: 5
+                }
+              }
+            },
+            opacity: {
+              value: { min: 0.1, max: 0.4 },
+              animation: {
+                enable: true,
+                speed: 0.5,
+                sync: false
+              }
+            },
+            size: {
+              value: { min: 1, max: 4 },
+              animation: {
+                enable: true,
+                speed: 0.8,
+                sync: false
+              }
+            },
+            links: {
+              enable: false,
+            },
+            move: {
+              enable: true,
+              speed: 0.3,
+              direction: "none",
+              random: true,
+              straight: false,
+              outModes: {
+                default: "out",
+              },
+              attract: {
+                enable: false,
+              },
+            },
+          },
+          interactivity: {
+            detectsOn: "canvas",
+            events: {
+              onHover: {
+                enable: true,
+                mode: "bubble",
+              },
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              resize: { enable: true },
+            },
+            modes: {
+              bubble: {
+                distance: 100,
+                size: 4,
+                duration: 2,
+                opacity: 0.4,
+              },
+              push: {
+                quantity: 4,
+              },
+            },
+          },
+          detectRetina: true,
+        }}
+      />
+      <div className="container mx-auto z-10 relative">
         <h2 className="section-heading">Experience</h2>
         
         <div className="mt-12 relative">

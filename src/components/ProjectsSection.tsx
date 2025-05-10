@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Github } from 'lucide-react';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadFull } from "tsparticles";
 
 interface Project {
   title: string;
@@ -23,7 +25,7 @@ const projects: Project[] = [
       "Created an interactive Streamlit dashboard with real-time predictions and performance analytics using matplotlib and plotly."
     ],
     tech: ["Python", "Machine Learning", "Streamlit", "pandas", "numpy", "scikit-learn", "PuLP"],
-    github: "https://github.com/prabhs4546"
+    github: "https://github.com/prabhs45667/dream-11-8-april"
   },
   {
     title: "Optimized Real-Time Bidding (RTB) with Predictive Modeling",
@@ -35,7 +37,7 @@ const projects: Project[] = [
       "Implemented in Python with NumPy, pandas, LightGBM, and Bayesian Optimization for tuning."
     ],
     tech: ["Python", "Logistic Regression", "LightGBM", "Linear Regression", "NumPy", "pandas", "Bayesian Optimization"],
-    github: "https://github.com/prabhs4546"
+    github: "https://github.com/prabhs45667/adobe-hackathon-main"
   },
   {
     title: "LearnFast",
@@ -47,7 +49,7 @@ const projects: Project[] = [
       "Transforms unstructured YouTube playlists into structured, goal-based learning journeys."
     ],
     tech: ["Next.js", "Tailwind CSS", "Flask", "Python", "MongoDB Atlas"],
-    github: "https://github.com/prabhs4546"
+    github: "https://github.com/prabhs45667/LearnFast-YT-Scheduler"
   },
   {
     title: "GynoGuide",
@@ -59,12 +61,16 @@ const projects: Project[] = [
       "Fostered a supportive community, ensuring pregnant women feel safe, empowered, and well-informed."
     ],
     tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "Django"],
-    github: "#"
+    github: "https://github.com/prabhs45667/Gynoguide-main"
   }
 ];
 
 const ProjectsSection: React.FC = () => {
   const projectsRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    initParticlesEngine(loadFull);
+  }, []);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const sectionEl = projectsRef.current;
@@ -72,20 +78,127 @@ const ProjectsSection: React.FC = () => {
       const cards = Array.from(
         sectionEl.querySelectorAll<HTMLElement>('.tech-card')
       );
-      gsap.from(cards, {
-        scrollTrigger: { trigger: sectionEl, start: 'top bottom', toggleActions: 'play reverse play reverse' },
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.2,
-        immediateRender: false,
+      
+      // Apply animations based on project title
+      cards.forEach((card) => {
+        // Get the project title from the card
+        const titleElement = card.querySelector('h3');
+        const projectTitle = titleElement ? titleElement.textContent : '';
+        
+        // Set direction based on project title
+        let direction = 0;
+        if (projectTitle?.includes('Dream11') || projectTitle?.includes('LearnFast')) {
+          direction = -100; // From left for Dream11 and LearnFast
+        } else if (projectTitle?.includes('Optimized') || projectTitle?.includes('GynoGuide')) {
+          direction = 100; // From right for Optimized Bidding and GynoGuide
+        }
+        
+        gsap.from(card, {
+          scrollTrigger: { 
+            trigger: card, 
+            start: 'top bottom', 
+            toggleActions: 'play reverse play reverse' 
+          },
+          opacity: 0,
+          x: direction, // Slide from specific direction based on project title
+          duration: 1.2,
+          ease: 'power3.out',
+          immediateRender: false,
+        });
       });
     }
   }, []);
 
   return (
-    <section id="projects" className="py-20 bg-muted/30" ref={projectsRef}>
-      <div className="container mx-auto">
+    <section id="projects" className="py-20 bg-muted/30 relative" ref={projectsRef}>
+      {/* Snow particles background */}
+      <Particles
+        id="projectsTsparticles"
+        className="absolute inset-0 -z-10"
+        options={{
+          background: {
+            color: {
+              value: "transparent",
+            },
+          },
+          fpsLimit: 60,
+          particles: {
+            number: {
+              value: 100,
+              density: {
+                enable: true,
+                width: 800,
+                height: 800,
+              },
+            },
+            color: {
+              value: ["#ffffff", "#f5f5f5", "#e0e0e0"],
+            },
+            shape: {
+              type: "circle",
+            },
+            opacity: {
+              value: { min: 0.1, max: 0.5 },
+              animation: {
+                enable: true,
+                speed: 0.3,
+                sync: false
+              }
+            },
+            size: {
+              value: { min: 1, max: 3 },
+              animation: {
+                enable: true,
+                speed: 0.5,
+                sync: false
+              }
+            },
+            links: {
+              enable: false,
+            },
+            move: {
+              enable: true,
+              speed: 0.5,
+              direction: "bottom",
+              random: true,
+              straight: false,
+              outModes: {
+                default: "out",
+              },
+              attract: {
+                enable: false,
+              },
+            },
+          },
+          interactivity: {
+            detectsOn: "canvas",
+            events: {
+              onHover: {
+                enable: true,
+                mode: "bubble",
+              },
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              resize: { enable: true },
+            },
+            modes: {
+              bubble: {
+                distance: 100,
+                size: 4,
+                duration: 2,
+                opacity: 0.4,
+              },
+              push: {
+                quantity: 4,
+              },
+            },
+          },
+          detectRetina: true,
+        }}
+      />
+      <div className="container mx-auto z-10 relative">
         <h2 className="section-heading">Projects</h2>
         
         {/* Carousel for Projects */}
@@ -98,18 +211,23 @@ const ProjectsSection: React.FC = () => {
         }
         return acc;
       }, [] as Project[][]).map((slide, slideIdx) => (
-        <div className="swiper-slide w-full flex justify-center space-x-4" key={slideIdx}>
+        <div className="swiper-slide w-full flex justify-center space-x-8" key={slideIdx}>
           {slide.map((project, index) => (
             <div
               key={index}
-              className="tech-card flex flex-col rounded-xl overflow-hidden bg-card shadow-lg mx-2 w-2/5"
+              className="tech-card flex flex-col rounded-xl overflow-hidden bg-card shadow-lg mx-4 w-2/5"
             >
               {/* Upper half: Image */}
               <div className="w-full h-[270px] bg-gray-800 flex items-center justify-center">
                 <img
-                  src={project.title === "Dream11 Fantasy Cricket Prediction System" ? "/img/dream.png" : "/img/dream.png"}
+                  src={
+                    project.title === "Dream11 Fantasy Cricket Prediction System" ? "/img/dream.png" :
+                    project.title === "Optimized Real-Time Bidding (RTB) with Predictive Modeling" ? "/img/bid.png" :
+                    project.title === "LearnFast" ? "/img/learn.png" :
+                    project.title === "GynoGuide" ? "/img/gyno.png" : "/img/placeholder.svg"
+                  }
                   alt="Project Preview"
-                  className={`w-full h-full ${project.title === "Dream11 Fantasy Cricket Prediction System" ? "object-contain" : "object-cover"}`}
+                  className="w-full h-full object-cover"
                 />
               </div>
               {/* Lower half: Content */}

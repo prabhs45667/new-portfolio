@@ -64,18 +64,18 @@ const ContactSection: React.FC = () => {
                 <span className="group-hover:text-accent transition-colors">+91-7701857794</span>
               </a>
               
-              <a href="https://github.com/prabhs4546" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+              <a href="https://github.com/prabhs45667" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
                 <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                   <Github className="h-5 w-5" />
                 </div>
-                <span className="group-hover:text-accent transition-colors">github.com/prabhs4546</span>
+                <span className="group-hover:text-accent transition-colors">github.com/prabhs45667</span>
               </a>
               
-              <a href="https://www.linkedin.com/in/prabhdeep-singh-narula-1798b0246/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+              <a href="https://www.linkedin.com/in/prabhdeep-singh-265a43296/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
                 <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </div>
-                <span className="group-hover:text-accent transition-colors">linkedin.com/in/prabhdeep-singh-narula</span>
+                <span className="group-hover:text-accent transition-colors">linkedin.com/in/prabhdeep-singh-265a43296</span>
               </a>
             </div>
           </div>

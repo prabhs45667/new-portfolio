@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { School, Calendar, Award, Code } from 'lucide-react';
 import anime from 'animejs';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadFull } from "tsparticles";
 
 const AboutSection: React.FC = () => {
   const skills = [
@@ -15,6 +17,10 @@ const AboutSection: React.FC = () => {
   const infoItemsRef = useRef<HTMLDivElement>(null);
   const skillsCardRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    initParticlesEngine(loadFull);
+  }, []);
 
   useEffect(() => {
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -85,8 +91,95 @@ const AboutSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-muted/30">
-      <div className="container mx-auto">
+    <section id="about" className="py-20 bg-muted/30 relative">
+      {/* Star particles background */}
+      <Particles
+        id="aboutTsparticles"
+        className="absolute inset-0 -z-10"
+        options={{
+          background: {
+            color: {
+              value: "transparent",
+            },
+          },
+          fpsLimit: 60,
+          particles: {
+            number: {
+              value: 80,
+              density: {
+                enable: true,
+                width: 800,
+                height: 800,
+              },
+            },
+            color: {
+              value: ["#ffffff", "#f5f5f5", "#e0e0e0"],
+            },
+            shape: {
+              type: "circle",
+            },
+            opacity: {
+              value: { min: 0.05, max: 0.3 },
+              animation: {
+                enable: true,
+                speed: 0.5,
+                sync: false
+              }
+            },
+            size: {
+              value: { min: 1, max: 3 },
+              animation: {
+                enable: true,
+                speed: 0.8,
+                sync: false
+              }
+            },
+            links: {
+              enable: false,
+            },
+            move: {
+              enable: true,
+              speed: 0.3,
+              direction: "none",
+              random: true,
+              straight: false,
+              outModes: {
+                default: "out",
+              },
+              attract: {
+                enable: false,
+              },
+            },
+          },
+          interactivity: {
+            detectsOn: "canvas",
+            events: {
+              onHover: {
+                enable: true,
+                mode: "bubble",
+              },
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              resize: { enable: true },
+            },
+            modes: {
+              bubble: {
+                distance: 100,
+                size: 4,
+                duration: 2,
+                opacity: 0.4,
+              },
+              push: {
+                quantity: 4,
+              },
+            },
+          },
+          detectRetina: true,
+        }}
+      />
+      <div className="container mx-auto z-10 relative">
         <h2 className="section-heading">About Me</h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-start mt-12">

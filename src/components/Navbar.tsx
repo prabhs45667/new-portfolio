@@ -103,12 +103,12 @@ const Navbar = () => {
             </a>
           ))}
           <div className="flex items-center space-x-2 ml-4">
-            <a href="https://github.com/prabhs4546" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/prabhs45667" target="_blank" rel="noopener noreferrer">
               <Button size="icon" variant="ghost" className="rounded-full">
                 <Github className="h-5 w-5" />
               </Button>
             </a>
-            <a href="https://www.linkedin.com/in/prabhdeep-singh-narula-1798b0246/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/prabhdeep-singh-265a43296/" target="_blank" rel="noopener noreferrer">
               <Button size="icon" variant="ghost" className="rounded-full">
                 <Linkedin className="h-5 w-5" />
               </Button>
@@ -169,10 +169,10 @@ const Navbar = () => {
             </a>
           ))}
           <div className="flex items-center space-x-4 py-3">
-            <a href="https://github.com/prabhs4546" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/prabhs45667" target="_blank" rel="noopener noreferrer">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://www.linkedin.com/in/prabhdeep-singh-narula-1798b0246/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/prabhdeep-singh-265a43296/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-5 w-5" />
             </a>
             <a href="mailto:prabhs4546@gmail.com">

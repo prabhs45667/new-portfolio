@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center gap-4 mb-6 md:mb-0 footer-animate">
             <a 
-              href="https://github.com/prabhs4546" 
+              href="https://github.com/prabhs45667" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-accent/10 transition-colors"
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               <Github className="h-5 w-5" />
             </a>
             <a 
-              href="https://www.linkedin.com/in/prabhdeep-singh-narula-1798b0246/" 
+              href="https://www.linkedin.com/in/prabhdeep-singh-265a43296/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-accent/10 transition-colors"
